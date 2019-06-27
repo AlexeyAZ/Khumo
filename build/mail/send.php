@@ -4,7 +4,7 @@ $phone = nl2br($_POST['phone']);
 $name = nl2br($_POST['name']);
 $email = nl2br($_POST['email']);
 $adress = nl2br($_POST['adress']);
-$content = "Заявка с сайта PROДЫМ";
+$content = "Заявка с сайта Khumo";
 
 // Формирование заголовка письма
 $subject  = $content;
@@ -15,7 +15,7 @@ $headers .= "Content-Type: text/html;charset=utf-8 \r\n";
 
 // Формирование тела письма
 $msg  = "<html><body style='font-family:Arial,sans-serif;'5>";
-$msg .= "<h2 style='font-weight:bold;border-bottom:1px dotted #ccc;'>Письмо с сайта PROДЫМ";
+$msg .= "<h2 style='font-weight:bold;border-bottom:1px dotted #ccc;'>Письмо с сайта Khumo";
 $msg .= "</h2>\r\n";
 $msg .= "<p><strong>Телефон:</strong> ".$phone."</p>\r\n";
 $msg .= "<p><strong>ФИО:</strong> ".$name."</p>\r\n";

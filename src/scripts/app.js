@@ -20,12 +20,12 @@ const app = {
     // autoplay video
     (function () {
       const video = document.querySelector('#video');
-      const hideVideo = e => {
+      const hideVideo = () => {
         if (video.currentTime > 12) {
           video.classList.add('hide-video', 'video-transition');
         }
       };
-      const showVideo = e => {
+      const showVideo = () => {
         if (video.currentTime > 0 && video.currentTime <= 12 && video.classList.contains('hide-video')) {
           video.classList.remove('hide-video');
         }
@@ -55,6 +55,13 @@ const app = {
     (function () {
       const forms = document.querySelectorAll('.gallery__form');
 
+      const clearForm = form => {
+        const inputsArr = form.querySelectorAll('input');
+        inputsArr.forEach(input => {
+          input.value = '';
+        });
+      };
+
       forms.forEach(form => {
         form.addEventListener('submit', e => {
           e.preventDefault();
@@ -73,11 +80,6 @@ const app = {
           });
         });
       });
-
-      const clearForm = form => {
-        const inputsArr = form.querySelectorAll('input');
-        inputsArr.forEach(input => { input.value = ''});
-      };
     })();
 
     // confirm age
@@ -141,7 +143,7 @@ const app = {
         if (mobile) {
           if (currentSlide === 1) {
             gallerySlider.slick('slickSetOption', 'swipe', false);
-          } else {
+          }else {
             gallerySlider.slick('slickSetOption', 'swipe', true);
           }
         }
