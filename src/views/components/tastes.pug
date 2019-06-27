@@ -4,7 +4,7 @@ mixin tastes(array=[])
       each item in array
         div.tastes__gallery-item
           div.tastes__gallery-img
-            img(src=item.img !== '/' ? `/img/Tastes/${item.img}` : './img/taste.jpg').tastes__gallery-pic
+            img(src=item.img !== '/' ? `./img/Tastes/${item.img}` : './img/taste.jpg').tastes__gallery-pic
           div.tastes__gallery-text
             p.tastes__gallery-title(style=`color: ${item.color}`)
               !=item.name
