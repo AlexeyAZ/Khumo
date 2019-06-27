@@ -23,7 +23,6 @@
   }
 }
 .video {
-  transition: 2s ease;
   opacity: 0.4;
   position: absolute;
   transform: translate(-50%, -50%);
@@ -33,6 +32,9 @@
   min-height: 100%;
   width: auto;
   height: auto;
+}
+.video-transition {
+  transition: 2s ease;
 }
 .hide-video {
   opacity: 0;

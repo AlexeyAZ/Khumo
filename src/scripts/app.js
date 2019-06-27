@@ -22,7 +22,7 @@ const app = {
       const video = document.querySelector('#video');
       const hideVideo = e => {
         if (video.currentTime > 12) {
-          video.classList.add('hide-video');
+          video.classList.add('hide-video', 'video-transition');
         }
       };
       const showVideo = e => {
@@ -133,32 +133,29 @@ const app = {
         swipe: false
       });
 
-      gallerySlider.on('afterChange', () => {
-        // if (window.matchMedia('(max-width:768px)').matches) {
+      gallerySlider.on('afterChange', (slick, currentSlide) => {
         $('html, body').animate({
           scrollTop: $('#gallery').offset().top
         }, 200);
-        // }
+
+        if (mobile) {
+          if (currentSlide === 1) {
+            gallerySlider.slick('slickSetOption', 'swipe', false);
+          } else {
+            gallerySlider.slick('slickSetOption', 'swipe', true);
+          }
+        }
       });
 
       galleryLeft.addEventListener('click', () => {
         gallerySlider.slick('slickGoTo', 0);
-        if (mobile) {
-          gallerySlider.slick('slickSetOption', 'swipe', true);
-        }
       });
       galleryRight.addEventListener('click', () => {
         gallerySlider.slick('slickGoTo', 2);
-        if (mobile) {
-          gallerySlider.slick('slickSetOption', 'swipe', true);
-        }
       });
       galleryCenter.forEach(item =>
         item.addEventListener('click', () => {
           gallerySlider.slick('slickGoTo', 1);
-          if (mobile) {
-            gallerySlider.slick('slickSetOption', 'swipe', false);
-          }
         }));
     }
   }
