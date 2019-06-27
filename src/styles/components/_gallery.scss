@@ -77,6 +77,14 @@
 		outline: none;
 	}
 
+	&__item-container-inner {
+		&_right {
+			@include media(w500) {
+				padding-left: 40px;
+			}
+		}
+	}
+
 	&__intro-text {
 		margin-bottom: 135px;
 
@@ -198,6 +206,7 @@
 	}
 
 	&__form-input {
+		font-family: $default-font;
 		border: 1px solid transparent;
 		outline: none;
 		padding: 10px 20px;

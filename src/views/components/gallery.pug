@@ -4,29 +4,112 @@ include ./button
 -
   const tastes = [
     {
-      img: '/',
+      img: 'Grape.png',
       name: 'Виноград',
-      nameEng: 'Grape'
+      nameEng: 'Grape',
+      color: '#9EC428'
     },
     {
-      img: '/',
+      img: 'WildCherry.png',
       name: 'Дикая вишня',
-      nameEng: 'Wild cherry'
+      nameEng: 'Wild cherry',
+      color: '#D3205F'
     },
     {
-      img: '/',
+      img: 'Mango.png',
       name: 'Манго',
-      nameEng: 'Mango'
+      nameEng: 'Mango',
+      color: '#FECC00'
     },
     {
-      img: '/',
+      img: 'Watermelon.png',
       name: 'Арбуз',
-      nameEng: 'Watermelon'
+      nameEng: 'Watermelon',
+      color: '#D51D4C'
     },
     {
-      img: '/',
+      img: 'Orange.png',
       name: 'Апельсин',
-      nameEng: 'Orange'
+      nameEng: 'Orange',
+      color: '#F18917'
+    },
+    {
+      img: 'Mint.png',
+      name: 'Мята',
+      nameEng: 'Mint',
+      color: '#6EB535'
+    },
+    {
+      img: 'Barberry.png',
+      name: 'Барбарис',
+      nameEng: 'Barberry',
+      color: '#CE2543'
+    },
+    {
+      img: 'Grapefruit.png',
+      name: 'Грейпфрут',
+      nameEng: 'Grapefruit',
+      color: '#EA5E20'
+    },
+    {
+      img: 'Pear.png',
+      name: 'Груша',
+      nameEng: 'Pear',
+      color: '#F7AA47'
+    },
+    {
+      img: 'Peach.png',
+      name: 'Персик',
+      nameEng: 'Peach',
+      color: '#ED7267'
+    },
+    {
+      img: 'Banana.png',
+      name: 'Банан',
+      nameEng: 'Banana',
+      color: '#FECC00'
+    },
+    {
+      img: 'Tropic.png',
+      name: 'Тропик',
+      nameEng: 'Tropic',
+      color: '#6EB535'
+    },
+    {
+      img: 'DriedPlum.png',
+      name: 'Чернослив',
+      nameEng: 'Dried plum',
+      color: '#464191'
+    },
+    {
+      img: 'WildBerry.png',
+      name: 'Лесные ягоды',
+      nameEng: 'Wild berry',
+      color: '#D11B57'
+    },
+    {
+      img: 'GreenTea.png',
+      name: 'Зеленый чай',
+      nameEng: 'Green tea',
+      color: '#A1C527'
+    },
+    {
+      img: 'Plombir.png',
+      name: 'Пломбир',
+      nameEng: 'Plombir',
+      color: '#FBD9CA'
+    },
+    {
+      img: 'Ananas.png',
+      name: 'Ананас',
+      nameEng: 'Ananas',
+      color: '#F3942E'
+    },
+    {
+      img: 'PassionFruitAndPear.png',
+      name: 'Маракуйя и груша',
+      nameEng: 'Passion fruit and pear',
+      color: '#77569E'
     }
   ];
 
@@ -90,7 +173,7 @@ div#gallery.gallery
     div.gallery__item
       div.container
         div.gallery__arrow.gallery__arrow_left.js-arrow-goto-center
-        div.container-inner
+        div.container-inner.gallery__item-container-inner.gallery__item-container-inner_right
           h2.
             Контакты и представительства
           p.

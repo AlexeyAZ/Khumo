@@ -1,7 +1,9 @@
 import $ from 'jquery';
 import Inputmask from 'inputmask';
+import MobileDetect from 'mobile-detect';
 import 'slick-carousel';
 
+const md = new MobileDetect(window.navigator.userAgent);
 const app = {
   init: () => {
     document.addEventListener('DOMContentLoaded', () => app.bindActions());
@@ -18,8 +20,20 @@ const app = {
     // autoplay video
     (function () {
       const video = document.querySelector('#video');
+      const hideVideo = e => {
+        if (video.currentTime > 12) {
+          video.classList.add('hide-video');
+        }
+      };
+      const showVideo = e => {
+        if (video.currentTime > 0 && video.currentTime <= 12 && video.classList.contains('hide-video')) {
+          video.classList.remove('hide-video');
+        }
+      };
       if (video) {
         video.play();
+        video.addEventListener('timeupdate', showVideo);
+        video.addEventListener('timeupdate', hideVideo);
       }
     })();
 
@@ -103,6 +117,7 @@ const app = {
     const gallery = document.querySelector('.js-gallery');
 
     if (gallery) {
+      const mobile = md.mobile();
       const galleryLeft = document.querySelector('.js-gallery-nav-left');
       const galleryRight = document.querySelector('.js-gallery-nav-right');
       const galleryCenter = document.querySelectorAll('.js-arrow-goto-center');
@@ -114,21 +129,37 @@ const app = {
         adaptiveHeight: true,
         arrows: false,
         initialSlide: 1,
-        draggable: false,
+        draggable: true,
         swipe: false
       });
 
-      if (window.matchMedia('(max-width:768px)').matches) {
-        gallerySlider.on('afterChange', () => {
-          $('html, body').animate({
-            scrollTop: $('#gallery').offset().top
-          }, 300);
-        });
-      }
+      gallerySlider.on('afterChange', () => {
+        // if (window.matchMedia('(max-width:768px)').matches) {
+        $('html, body').animate({
+          scrollTop: $('#gallery').offset().top
+        }, 200);
+        // }
+      });
 
-      galleryLeft.addEventListener('click', () => gallerySlider.slick('slickGoTo', 0));
-      galleryRight.addEventListener('click', () => gallerySlider.slick('slickGoTo', 2));
-      galleryCenter.forEach(item => item.addEventListener('click', () => gallerySlider.slick('slickGoTo', 1)));
+      galleryLeft.addEventListener('click', () => {
+        gallerySlider.slick('slickGoTo', 0);
+        if (mobile) {
+          gallerySlider.slick('slickSetOption', 'swipe', true);
+        }
+      });
+      galleryRight.addEventListener('click', () => {
+        gallerySlider.slick('slickGoTo', 2);
+        if (mobile) {
+          gallerySlider.slick('slickSetOption', 'swipe', true);
+        }
+      });
+      galleryCenter.forEach(item =>
+        item.addEventListener('click', () => {
+          gallerySlider.slick('slickGoTo', 1);
+          if (mobile) {
+            gallerySlider.slick('slickSetOption', 'swipe', false);
+          }
+        }));
     }
   }
 };

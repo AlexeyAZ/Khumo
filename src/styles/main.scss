@@ -7,6 +7,10 @@
 @import "../../node_modules/reset-css/sass/reset";
 @import "typography";
 
+@import "components/container";
+@import "components/header";
+@import "components/footer";
+
 @import "app";
 @import "components/check-age";
 @import "components/video";
@@ -18,9 +22,5 @@
 @import "components/tastes";
 @import "components/button";
 @import "components/link";
-
-@import "components/container";
-@import "components/header";
-@import "components/footer";
 
 @import "sprite";

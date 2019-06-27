@@ -1,6 +1,7 @@
 button {
   &.button {
     background-color: transparent;
+    font-family: $default-font;
     outline: none;
   }
 }
@@ -15,6 +16,7 @@ button {
   font-size: 25px;
   padding: 20px;
   position: relative;
+  outline: none;
 
   &__inner {
     display: inline-block;

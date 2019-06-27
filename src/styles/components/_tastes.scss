@@ -12,16 +12,19 @@
   &__gallery-item {
     background-color: rgba(0,0,0,0.4);
     display: flex;
+    align-items: center;
     margin-bottom: 50px;
     padding: 30px;
-    width: 45%;
-    max-width: 45%;
+    width: 48%;
+    max-width: 47%;
 
     @include media(w1366) {
       margin-bottom: 30px;
+      padding: 20px;
     }
 
     @include media(w768) {
+      padding: 15px;
       width: auto;
       max-width: none;
     }
@@ -34,8 +37,9 @@
 
   &__gallery-img {
     margin-right: 30px;
-    @include media(w768) {
+    @include media(w500) {
       margin-right: 0;
+      margin-bottom: 10px;
     }
   }
 
