@@ -1,0 +1,25 @@
+@mixin h3 {
+  font-size: 25px;
+  line-height: 31px;
+}
+
+@mixin h2 {
+  font-size: 35px;
+  line-height: 41px;
+}
+
+p {
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  @include h2;
+  color: $yellow-main;
+  margin-bottom: 0.8em;
+}
+
+h3 {
+  @include h3;
+  color: $yellow-main;
+  margin-bottom: 0.5em;
+}

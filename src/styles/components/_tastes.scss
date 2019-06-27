@@ -1,0 +1,65 @@
+.tastes {
+  &__gallery {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-between;
+
+    @include media(w768) {
+      display: block;
+    }
+  }
+
+  &__gallery-item {
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    margin-bottom: 50px;
+    padding: 30px;
+    width: 45%;
+    max-width: 45%;
+
+    @include media(w1366) {
+      margin-bottom: 30px;
+    }
+
+    @include media(w768) {
+      width: auto;
+      max-width: none;
+    }
+
+    @include media(w500) {
+      display: block;
+      text-align: center;
+    }
+  }
+
+  &__gallery-img {
+    margin-right: 30px;
+    @include media(w768) {
+      margin-right: 0;
+    }
+  }
+
+  &__gallery-pic {
+    max-width: 180px;
+    @include media(w1366) {
+      max-width: 126px;
+    }
+    @include media(w768) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &__gallery-text {
+    font-size: 30px;
+    line-height: 37px;
+    @include media(w1366) {
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
+
+  &__gallery-title {
+    color: $yellow-main;
+  }
+}

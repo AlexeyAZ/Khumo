@@ -1,0 +1,103 @@
+include ./tastes
+include ./button
+
+-
+  const tastes = [
+    {
+      img: '/',
+      name: 'Виноград',
+      nameEng: 'Grape'
+    },
+    {
+      img: '/',
+      name: 'Дикая вишня',
+      nameEng: 'Wild cherry'
+    },
+    {
+      img: '/',
+      name: 'Манго',
+      nameEng: 'Mango'
+    },
+    {
+      img: '/',
+      name: 'Арбуз',
+      nameEng: 'Watermelon'
+    },
+    {
+      img: '/',
+      name: 'Апельсин',
+      nameEng: 'Orange'
+    }
+  ];
+
+div#gallery.gallery
+  div.gallery__container.js-gallery
+    div.gallery__item
+      div.container
+        div.gallery__arrow.gallery__arrow_right.js-arrow-goto-center
+        div.container-inner
+          h2.
+            Вкусы
+          +tastes(tastes)
+
+    div.gallery__item
+      div.container
+        div.container-inner
+          div.gallery__intro-text
+            p.
+              Khumo - это новый, абсолютно уникальный продукт, главным достоинством которого является яркий, насыщенный, легко узнаваемый вкус фруктов и ягод в сочетании с густым обволакивающим дымом.
+            p.
+              При разработке рецепта главной нашей целью было максимальное соответствие вкусов их натуральным природным основам.  Мы считаем, что нам это вполне удалось; в первую очередь за счет применения уникальных составляющих и компонентов.
+            p.
+              На сегодняшний день на рынке представлена лёгкая линейка Khumo. Однако уже в ближайшем будущем (до конца года) планируется выход линеек Medim и Hard!
+            p.
+              Важнейшим достоинством нашего продукта является также легальность законность присутствия на рынке России.
+            p.
+              Попробуйте Khumo и узнайте, насколько реалистичной может быть вкусопередача!!!
+          div.gallery__nav
+            +button({animation: 'left'}).gallery__nav-item.js-gallery-nav-left.
+              Вкусы
+            +button.gallery__nav-item.js-gallery-nav-right.
+              КОНТАКТЫ И ПРЕДСТАВИТЕЛЬСТВА
+          
+          h3.
+            Нам важно Ваше мнение о качестве продукта и сервиса обслуживания!
+          p.
+            Здесь Вы можете написать свои отзывы, предложения и рекомендации по повышению качества нашего продукта или повышению обслуживания в пунктах продаж.
+          form.gallery__form
+            label.gallery__form-label
+              p.gallery__form-title.
+                Как к Вам обращаться
+              input(type="text" name="name" placeholder="Имя, Фамилия").gallery__form-input
+            label.gallery__form-label
+              p.gallery__form-title.
+                Ваш номер телефона
+              input(type="tel" name="phone" placeholder="+7 (999) 999-99-99" required).gallery__form-input
+            label.gallery__form-label
+              p.gallery__form-title.
+                Ваш отзыв
+              textarea(type="text" name="adress" placeholder="").gallery__form-input
+            +button({tag: 'button'})(type="submit").gallery__form-btn.
+              Отправить заявку
+            label.gallery__form-label.gallery__form-label_security
+              input(type="checkbox" checked required)
+              span
+                |Нажимая кнопку «Отправить заявку», я даю согласие на обработку персональных данных и соглашаюсь с
+                |
+                a(href="").security-link.nowrap.
+                  политикой конфиденциальности
+
+    div.gallery__item
+      div.container
+        div.gallery__arrow.gallery__arrow_left.js-arrow-goto-center
+        div.container-inner
+          h2.
+            Контакты и представительства
+          p.
+            Производитель: ООО "ХУМО ГРУПП"
+            Республика Татарстан, г. Казань
+            ТУ 32.99.59-001-34675399
+          p.
+            Дистрибьютор по г. Казани: Сеть магазинов Smoke
+          p.
+            Приглашаем к сотрудничеству дистрибьюторов и оптовиков по другим городам и регионам!

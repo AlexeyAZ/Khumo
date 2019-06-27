@@ -1,0 +1,11 @@
+.link {
+  transition: $trans;
+  color: $yellow-main;
+  display: inline-block;
+  font-size: 25px;
+  position: relative;
+
+  &:hover {
+    color: white;
+  }
+}

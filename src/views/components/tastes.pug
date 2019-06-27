@@ -1,0 +1,12 @@
+mixin tastes(array=[])
+  div.tastes
+    div.tastes__gallery
+      each item in array
+        div.tastes__gallery-item
+          div.tastes__gallery-img
+            img(src=item.img !== '/' && item.img || './img/taste.jpg').tastes__gallery-pic
+          div.tastes__gallery-text
+            p.tastes__gallery-title
+              !=item.name
+            p.tastes__gallery-subtitle
+              !=item.nameEng

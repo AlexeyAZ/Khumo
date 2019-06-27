@@ -1,0 +1,219 @@
+@import "../../../node_modules/slick-carousel/slick/slick.css";
+
+.gallery {
+	outline: none;
+	color: white;
+	padding-top: 50px;
+	padding-bottom: 30px;
+	position: relative;
+
+	@include media(w1366) {
+		padding-top: 20px;
+	}
+
+	.slick-slider {
+		user-select: auto;
+	}
+
+	&__container {
+		transition: $trans;
+		opacity: 0;
+
+		&_init {
+			opacity: 1;
+		}
+	}
+
+	&__arrow {
+		transform: translateY(-50%) scaleY(2);
+		transition: $trans;
+		cursor: pointer;
+		position: absolute;
+		top: 50%;
+		height: 40px;
+		width: 40px;
+		z-index: 1;
+
+		&_left {
+			left: 20px;
+		}
+
+		&_right {
+			right: 20px;
+		}
+
+		&:before {
+			content: "";
+			border-width: 2px;
+			border-color: transparent;
+			border-style: solid;
+			position: absolute;
+			height: 100%;
+			width: 100%;
+		}
+
+		&_right {
+			&:before {
+				transform: rotate(45deg);
+				border-top-color: $yellow-main;
+				border-right-color: $yellow-main;
+			}
+		}
+
+		&_left {
+			&:before {
+				transform: rotate(-45deg);
+				border-top-color: $yellow-main;
+				border-left-color: $yellow-main;
+			}
+		}
+
+		&:hover {
+			transform: translateY(-50%) scale(1.2, 1.8);
+		}
+	}
+
+	&__item {
+		outline: none;
+	}
+
+	&__intro-text {
+		margin-bottom: 135px;
+
+		@include media(w1366) {
+			margin-bottom: 70px;
+		}
+
+		p {
+			margin-bottom: 20px;
+			
+			@include media(w1366) {
+				margin-bottom: 20px;
+			}
+		}
+	}
+
+	&__nav {
+		display: flex;
+		justify-content: space-between;
+		text-align: center;
+		margin-bottom: 200px;
+
+		@include media(w768) {
+			display: block;
+			margin-bottom: 70px;
+		}
+	}
+
+	&__nav-item {
+		width: 45%;
+
+		@include media(w768) {
+			display: block;
+			margin-bottom: 30px;
+			width: auto;
+		}
+	}
+
+	&__nav-title {
+		transition: $trans;
+		color: $yellow-main;
+		font-weight: bold;
+		font-size: 19px;
+		text-transform: uppercase;
+	}
+
+	&__nav-text {
+		transition: $trans;
+	}
+
+	&__row {
+		display: flex;
+		align-items: center;
+		&_right {
+			padding-left: 40px;
+		}
+		@include media(w1024) {
+			display: block;
+		}
+	}
+
+	&__col {
+		position: relative;
+		width: 50%;
+		&_text {
+			padding-right: 40px;
+			@include media(w1024) {
+				margin-bottom: 30px;
+				padding-right: 0;
+			}
+		}
+		&_arrow-left {
+			padding-left: 40px;
+		}
+		&_arrow-right {
+			padding-right: 40px;
+		}
+		@include media(w1024) {
+			width: auto;
+		}
+	}
+
+	&__text {
+		margin-bottom: 20px;
+	}
+
+	&__info-phone {
+		transition: $trans;
+		font-size: 24px;
+		font-weight: bold;
+	
+		&:hover {
+			color: $yellow-main;
+		}
+	}
+
+	&__form {
+		padding-top: 20px;
+		max-width: 500px;
+		@include media(w1024) {
+		}
+	}
+
+	&__form-label {
+		display: block;
+		color: white;
+		margin-bottom: 28px;
+
+		&_security {
+			color: white;
+			font-weight: normal;
+		}
+	}
+
+	&__form-title {
+		font-size: 16px;
+		margin-bottom: 5px;
+		padding-left: 15px;
+	}
+
+	&__form-input {
+		border: 1px solid transparent;
+		outline: none;
+		padding: 10px 20px;
+		font-size: 16px;
+		width: 100%;
+
+		&:focus {
+			border-color: $yellow-main;
+		}
+	}
+
+	&__form-btn {
+		margin-bottom: 20px;
+
+		@include media(w768) {
+			width: 100%;
+		}
+	}
+}

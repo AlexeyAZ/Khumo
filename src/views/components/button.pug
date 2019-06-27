@@ -1,0 +1,8 @@
+mixin button(options = {})
+  -
+    const { tag, animation } = options;
+    const buttonTag = tag ? tag : 'a';
+    const buttonAnimation = animation ? animation : 'right';
+  #{buttonTag}.button(class=`button_animation_${buttonAnimation}`)&attributes(attributes)
+    span.button__inner
+      block
