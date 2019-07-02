@@ -56,6 +56,8 @@ const app = {
     // form handler
     (function () {
       const forms = document.querySelectorAll('.gallery__form');
+      const message = document.querySelector('.js-message');
+      const formWrap = document.querySelector('.js-form-wrap');
 
       const clearForm = form => {
         const inputsArr = form.querySelectorAll('input');
@@ -75,9 +77,13 @@ const app = {
             success: () => {
               alert('Заявка отправлена');
               clearForm(self);
+              message.classList.add('gallery__message_show');
+              formWrap.classList.add('gallery__form-wrap_hide');
             },
             error: () => {
               alert('Ошибка');
+              message.classList.add('gallery__message_show');
+              formWrap.classList.add('gallery__form-wrap_hide');
             }
           });
         });

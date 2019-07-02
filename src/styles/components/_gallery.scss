@@ -185,6 +185,19 @@
 		}
 	}
 
+	&__message {
+		display: none;
+		&_show {
+			display: block;
+		}
+	}
+
+	&__form-wrap {
+		&_hide {
+			display: none;
+		}
+	}
+
 	&__form {
 		padding-top: 20px;
 		max-width: 500px;
