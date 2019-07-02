@@ -3,6 +3,8 @@ import Inputmask from 'inputmask';
 import MobileDetect from 'mobile-detect';
 import 'slick-carousel';
 
+import News from './news';
+
 const md = new MobileDetect(window.navigator.userAgent);
 const app = {
   init: () => {
@@ -112,6 +114,26 @@ const app = {
         });
       }
     })();
+
+    // Create news page
+    const data = [
+      {
+        title: 'News title 1',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sollicitudin ornare urna, ac accumsan libero scelerisque ac. Maecenas egestas luctus ipsum, et scelerisque leo ultrices vitae. Aliquam eleifend fringilla ligula, id hendrerit urna eleifend sed. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer purus lectus, fringilla in lectus non, tristique scelerisque nibh. Aenean non faucibus diam, vitae faucibus sapien. Sed leo turpis, iaculis in mi sed, pharetra porta urna. Etiam tempus nisl lectus. Aliquam placerat, purus ac pretium varius, neque nunc vehicula magna, quis consectetur nunc nulla in odio. Vestibulum lacinia magna viverra pellentesque accumsan.',
+        href: 'https://news-1.html'
+      },
+      {
+        title: 'News title 2',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sollicitudin ornare urna, ac accumsan libero scelerisque ac. Maecenas egestas luctus ipsum, et scelerisque leo ultrices vitae. Aliquam eleifend fringilla ligula, id hendrerit urna eleifend sed. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer purus lectus, fringilla in lectus non, tristique scelerisque nibh. Aenean non faucibus diam, vitae faucibus sapien. Sed leo turpis, iaculis in mi sed, pharetra porta urna. Etiam tempus nisl lectus. Aliquam placerat, purus ac pretium varius, neque nunc vehicula magna, quis consectetur nunc nulla in odio. Vestibulum lacinia magna viverra pellentesque accumsan.',
+        href: 'https://news-2.html'
+      }
+    ];
+    const news = new News();
+    const newsHtml = news.getNewsHtml(data);
+    const newsWrap = document.querySelector('.js-news');
+    if (newsWrap) {
+      newsWrap.insertAdjacentHTML('afterbegin', newsHtml);
+    }
   },
 
   // switch between forms

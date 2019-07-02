@@ -45,13 +45,14 @@
 		}
 
 		&_news {
-			background-image: url("../img/sec2-bg.jpg");
-			background-position: center top;
-			background-repeat: no-repeat;
-			background-size: cover;
 			color: white;
 			display: flex;
 			flex-flow: column;
+
+			
+			.header__info {
+				visibility: hidden;
+			}
 
 			&:before {
 				display: none;

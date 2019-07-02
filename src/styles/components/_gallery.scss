@@ -8,7 +8,11 @@
 	position: relative;
 
 	@include media(w1366) {
-		padding-top: 20px;
+		padding-top: 40px;
+	}
+
+	@include media(w768) {
+		padding-top: 50px;
 	}
 
 	.slick-slider {

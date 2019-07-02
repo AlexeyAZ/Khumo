@@ -7,6 +7,7 @@ button {
 }
 
 .button {
+  @include h3;
   transition: $trans;
   text-transform: uppercase;
   text-align: center;
@@ -17,6 +18,12 @@ button {
   padding: 20px;
   position: relative;
   outline: none;
+
+  @include media(w768) {
+    @include h4;
+    border-width: 3px;
+    padding: 15px;
+  }
 
   &__inner {
     display: inline-block;

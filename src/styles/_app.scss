@@ -1,29 +1,31 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 
-    &:before,
-    &:after {
-        box-sizing: border-box;
-    }
+  &:before,
+  &:after {
+    box-sizing: border-box;
+  }
 }
 
 html {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-    font-family: $default-font;
-    font-size: 20px;
-    position: relative;
-    line-height: 1.2;
-    min-width: 320px;
+  @include h4;
+  font-family: $default-font;
+  position: relative;
+  min-width: 320px;
+  @include media(w768) {
+    @include h5;
+  }
 }
 
 .security-link {
-    border-bottom: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
 
-    &:hover {
-        color: $yellow-main;
-    }
+  &:hover {
+    color: $yellow-main;
+  }
 }

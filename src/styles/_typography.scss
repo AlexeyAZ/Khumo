@@ -1,3 +1,12 @@
+@mixin h5 {
+  font-size: 18px;
+  line-height: 22px;
+}
+@mixin h4 {
+  font-size: 20px;
+  line-height: 24px;
+}
+
 @mixin h3 {
   font-size: 25px;
   line-height: 31px;
@@ -22,4 +31,7 @@ h3 {
   @include h3;
   color: $yellow-main;
   margin-bottom: 0.5em;
+  @include media(w768) {
+    @include h4;
+  }
 }
