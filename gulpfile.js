@@ -30,7 +30,7 @@ const folders = {
 
 const paths = {
   static: [`${folders.static}/**/*.*`],
-  html: [`${folders.src}/views/**/*.pug`],
+  html: [`${folders.src}/views/*.pug`],
   styles: [`${folders.src}/styles/**/*.scss`],
   scripts: [`${folders.src}/scripts/**/*.js`],
   images: [`${folders.src}/img/**/*.png`, `${folders.src}/img/**/*.jpg`, `${folders.src}/img/**/*.svg`, `!${folders.src}/img/svg_sprite/**/*.*`],
