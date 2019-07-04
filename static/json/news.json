@@ -1,35 +1,41 @@
-{
-	"news": [
-		{
-			"title": "Новость1",
-			"text": "Текст акции, для детей старше 18 лет. Текст акции, для детей старше 18 лет. Текст акции, для детей старше 18 лет. Текст акции, для детей старше 18 лет. Текст акции, для детей старше 18 лет.",
-			"img": "https://yt3.ggpht.com/-wAQjptflV9M/AAAAAAAAAAI/AAAAAAAAAAA/wZGyk6OxSww/s900-c-k-no/photo.jpg"
-		},
+[
+	{
+		"title": "Новость 1",
+		"text": [
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sollicitudin ornare urna, ac accumsan libero scelerisque ac. Maecenas egestas luctus ipsum, et scelerisque leo ultrices vitae.Aliquam eleifend fringilla ligula, id hendrerit urna eleifend sed. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer purus lectus, fringilla in lectus non, tristique scelerisque nibh. Aenean non faucibus diam, vitae faucibus sapien. Sed leo turpis, iaculis in mi sed, pharetra porta urna. Etiam tempus nisl lectus. Aliquam placerat, purus ac pretium varius, neque nunc vehicula magna, quis consectetur nunc nulla in odio. Vestibulum lacinia magna viverra pellentesque accumsan.",
 
-		{
-			"title": "Новость2",
-			"text": "Текст акции, для детей старше 18 лет. Текст акции, для детей старше 18 лет. Текст акции, для детей старше 18 лет. Текст акции, для детей старше 18 лет. Текст акции, для детей старше 18 лет.",
-			"img": "https://yt3.ggpht.com/-wAQjptflV9M/AAAAAAAAAAI/AAAAAAAAAAA/wZGyk6OxSww/s900-c-k-no/photo.jpg"
-		},
-
-		{
-			"title": "Новость3",
-			"text": "Текст акции, для детей старше 18 лет. Текст акции, для детей старше 18 лет. Текст акции, для детей старше 18 лет. Текст акции, для детей старше 18 лет. Текст акции, для детей старше 18 лет.",
-			"img": "https://yt3.ggpht.com/-wAQjptflV9M/AAAAAAAAAAI/AAAAAAAAAAA/wZGyk6OxSww/s900-c-k-no/photo.jpg"
-		}
-	],
-
-	"actions": [
-		{
-			"title": "Акция1",
-			"text": "Текст акции, для детей старше 18 лет. Текст акции, для детей старше 18 лет. Текст акции, для детей старше 18 лет. Текст акции, для детей старше 18 лет. Текст акции, для детей старше 18 лет.",
-			"img": "https://yt3.ggpht.com/-wAQjptflV9M/AAAAAAAAAAI/AAAAAAAAAAA/wZGyk6OxSww/s900-c-k-no/photo.jpg"
-		},
-
-		{
-			"title": "Акция2",
-			"text": "Текст акции, для детей старше 18 лет. Текст акции, для детей старше 18 лет. Текст акции, для детей старше 18 лет. Текст акции, для детей старше 18 лет. Текст акции, для детей старше 18 лет.",
-			"img": "https://yt3.ggpht.com/-wAQjptflV9M/AAAAAAAAAAI/AAAAAAAAAAA/wZGyk6OxSww/s900-c-k-no/photo.jpg"
-		}
-	]
-}
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+			
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+		],
+		"date": "28.06.19"
+	},
+	{
+		"title": "Новость 2",
+		"text": [
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sollicitudin ornare urna, ac accumsan libero scelerisque ac. Maecenas egestas luctus ipsum, et scelerisque leo ultrices vitae.Aliquam eleifend fringilla ligula, id hendrerit urna eleifend sed. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer purus lectus, fringilla in lectus non, tristique scelerisque nibh. Aenean non faucibus diam, vitae faucibus sapien. Sed leo turpis, iaculis in mi sed, pharetra porta urna. Etiam tempus nisl lectus. Aliquam placerat, purus ac pretium varius, neque nunc vehicula magna, quis consectetur nunc nulla in odio. Vestibulum lacinia magna viverra pellentesque accumsan.", "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+		],
+		"date": "01.07.19"
+	},
+	{
+		"title": "Новость 3",
+		"text": [
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sollicitudin ornare urna, ac accumsan libero scelerisque ac. Maecenas egestas luctus ipsum, et scelerisque leo ultrices vitae.Aliquam eleifend fringilla ligula, id hendrerit urna eleifend sed. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer purus lectus, fringilla in lectus non, tristique scelerisque nibh. Aenean non faucibus diam, vitae faucibus sapien. Sed leo turpis, iaculis in mi sed, pharetra porta urna. Etiam tempus nisl lectus. Aliquam placerat, purus ac pretium varius, neque nunc vehicula magna, quis consectetur nunc nulla in odio. Vestibulum lacinia magna viverra pellentesque accumsan.", "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+		],
+		"date": "02.07.19"
+	},
+	{
+		"title": "Новость 4",
+		"text": [
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sollicitudin ornare urna, ac accumsan libero scelerisque ac. Maecenas egestas luctus ipsum, et scelerisque leo ultrices vitae.Aliquam eleifend fringilla ligula, id hendrerit urna eleifend sed. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer purus lectus, fringilla in lectus non, tristique scelerisque nibh. Aenean non faucibus diam, vitae faucibus sapien. Sed leo turpis, iaculis in mi sed, pharetra porta urna. Etiam tempus nisl lectus. Aliquam placerat, purus ac pretium varius, neque nunc vehicula magna, quis consectetur nunc nulla in odio. Vestibulum lacinia magna viverra pellentesque accumsan.", "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+		],
+		"date": "03.07.19"
+	},
+	{
+		"title": "Новость 5",
+		"text": [
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sollicitudin ornare urna, ac accumsan libero scelerisque ac. Maecenas egestas luctus ipsum, et scelerisque leo ultrices vitae.Aliquam eleifend fringilla ligula, id hendrerit urna eleifend sed. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer purus lectus, fringilla in lectus non, tristique scelerisque nibh. Aenean non faucibus diam, vitae faucibus sapien. Sed leo turpis, iaculis in mi sed, pharetra porta urna. Etiam tempus nisl lectus. Aliquam placerat, purus ac pretium varius, neque nunc vehicula magna, quis consectetur nunc nulla in odio. Vestibulum lacinia magna viverra pellentesque accumsan.", "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+		],
+		"date": "04.07.19"
+	}
+]

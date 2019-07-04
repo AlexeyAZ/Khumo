@@ -1,15 +1,26 @@
 class News {
-  createSingleNews = ({title, text}) => {
+  showAllNews = () => {
+    const newsList = document.querySelector('.news__part');
+    if (newsList) {
+      newsList.classList.remove('news__part');
+    }
+    
+  }
+  createSingleNews = ({title, text, date}) => {
     return `
       <div class="news__post">
-        <h2>${title}</h2>
-        <p>${text}</p>
+        <div class="news__post-head">
+          <h3>${title}</h3>
+          <h3>${date}</h3>
+        </div>
+        ${text.map(paragraph => `<p>${paragraph}</p>`).join('')}
       </div>
     `;
   }
   getNewsHtml = data => {
+    this.showAllNews();
     return `
-      <div>
+      <div class="news__part">
         ${data.map(item => this.createSingleNews(item)).join('')}
       </div>
     `;

@@ -39,7 +39,6 @@
 	}
 
 	&__info-buttons {
-		// margin-bottom: 20px;
 		text-align: right;
 
 		@include media(w768) {
@@ -63,24 +62,34 @@
 		font-size: 25px;
 
 		@include media(w768) {
-			display: block;
 			margin-top: -10px;
-			text-align: center;
 			margin-bottom: 10px;
+		}
+
+		@include media(w1024) {
+			display: block;
+			text-align: center;
 		}
 	}
 
 	&__social-list {
 		display: flex;
+		margin-right: 20px;
 
 		@include media(w768) {
 			justify-content: center;
+		}
+
+		@include media(w1024) {
 			margin-bottom: 20px;
+			margin-right: 0;
 		}
 	}
 
 	&__social-item {
-		margin-right: 20px;
+		&:not(:last-child) {
+			margin-right: 20px;
+		}
 
 		@include media(w768) {
 			margin: 0 10px;

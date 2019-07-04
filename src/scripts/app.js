@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import Inputmask from 'inputmask';
 import MobileDetect from 'mobile-detect';
+import axios from 'axios';
 import 'slick-carousel';
 
 import News from './news';
@@ -12,6 +13,7 @@ const app = {
   },
 
   bindActions: () => {
+    let globalGallery = null;
     const content = document.querySelector('.content');
 
     // form phone input handler
@@ -90,6 +92,78 @@ const app = {
       });
     })();
 
+  // switch between forms
+    const createGallery = () => {
+      const gallery = document.querySelector('.js-gallery');
+
+      if (gallery) {
+        const mobile = md.mobile();
+        const galleryLeft = document.querySelector('.js-gallery-nav-left');
+        const galleryRight = document.querySelector('.js-gallery-nav-right');
+        const galleryCenter = document.querySelectorAll('.js-arrow-goto-center');
+
+        $(gallery).not('.slick-initialized').on('init', () => gallery.classList.add('gallery__container_init'));
+
+        const gallerySlider = $(gallery).not('.slick-initialized').slick({
+          infinite: false,
+          adaptiveHeight: true,
+          arrows: false,
+          initialSlide: 1,
+          draggable: true,
+          swipe: false
+        });
+
+        globalGallery = gallerySlider;
+
+        const changeArrowVisibility = arrowDirection =>
+          galleryCenter.forEach(arrow => {
+            if (arrowDirection) {
+              if (arrow.classList.contains(`gallery__arrow_${arrowDirection}`)) {
+                arrow.classList.add('gallery__arrow_visible');
+              }else {
+                arrow.classList.remove('gallery__arrow_visible');
+              }
+            }else {
+              arrow.classList.remove('gallery__arrow_visible');
+            }
+          });
+
+        gallerySlider.on('afterChange', (e, slick, currentSlide) => {
+          $('html, body').animate({
+            scrollTop: $('#gallery').offset().top
+          }, 200);
+        });
+
+        gallerySlider.on('beforeChange', (e, slick, currentSlide, nextSlide) => {
+          if (nextSlide === 0) {
+            changeArrowVisibility('right');
+          }
+          if (nextSlide === 1) {
+            changeArrowVisibility();
+          }
+          if (nextSlide === 2) {
+            changeArrowVisibility('left');
+          }
+        });
+
+        if (mobile) {
+          gallerySlider.slick('slickSetOption', 'swipe', true);
+        }
+
+        galleryLeft.addEventListener('click', () => {
+          gallerySlider.slick('slickGoTo', 0);
+          
+        });
+        galleryRight.addEventListener('click', () => {
+          gallerySlider.slick('slickGoTo', 2);
+        });
+        galleryCenter.forEach(item =>
+          item.addEventListener('click', e => {
+            gallerySlider.slick('slickGoTo', 1);
+          }));
+      }
+    };
+
     // confirm age
     (function () {
       const ageConfirmBtn = document.querySelector('.js-check-age-confirm');
@@ -102,14 +176,14 @@ const app = {
           contentCheckAge.style.display = 'none';
           content.classList.remove('content_hide');
 
-          setTimeout(app.createGallery, 300);
+          setTimeout(createGallery, 300);
         });
       }
 
       if (content.classList.contains('content_index')) {
         if (localStorage.getItem('checkAge') !== null) {
           content.classList.remove('content_hide');
-          app.createGallery();
+          createGallery();
         }else {
           content.querySelector('.content__check-age').style.display = 'block';
         }
@@ -122,72 +196,25 @@ const app = {
     })();
 
     // Create news page
-    const data = [
-      {
-        title: 'News title 1',
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sollicitudin ornare urna, ac accumsan libero scelerisque ac. Maecenas egestas luctus ipsum, et scelerisque leo ultrices vitae. Aliquam eleifend fringilla ligula, id hendrerit urna eleifend sed. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer purus lectus, fringilla in lectus non, tristique scelerisque nibh. Aenean non faucibus diam, vitae faucibus sapien. Sed leo turpis, iaculis in mi sed, pharetra porta urna. Etiam tempus nisl lectus. Aliquam placerat, purus ac pretium varius, neque nunc vehicula magna, quis consectetur nunc nulla in odio. Vestibulum lacinia magna viverra pellentesque accumsan.',
-        href: 'https://news-1.html'
-      },
-      {
-        title: 'News title 2',
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sollicitudin ornare urna, ac accumsan libero scelerisque ac. Maecenas egestas luctus ipsum, et scelerisque leo ultrices vitae. Aliquam eleifend fringilla ligula, id hendrerit urna eleifend sed. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer purus lectus, fringilla in lectus non, tristique scelerisque nibh. Aenean non faucibus diam, vitae faucibus sapien. Sed leo turpis, iaculis in mi sed, pharetra porta urna. Etiam tempus nisl lectus. Aliquam placerat, purus ac pretium varius, neque nunc vehicula magna, quis consectetur nunc nulla in odio. Vestibulum lacinia magna viverra pellentesque accumsan.',
-        href: 'https://news-2.html'
-      }
-    ];
     const news = new News();
-    const newsHtml = news.getNewsHtml(data);
     const newsWrap = document.querySelector('.js-news');
-    if (newsWrap) {
-      newsWrap.insertAdjacentHTML('afterbegin', newsHtml);
-    }
-  },
+    const newsButton = document.querySelector('.js-gallery-show-all-news');
+    newsButton.addEventListener('click', e => {
+      news.showAllNews();
+      newsButton.classList.add('hide');
+      $(globalGallery).slick('reinit');
+    });
 
-  // switch between forms
-  createGallery: () => {
-    const gallery = document.querySelector('.js-gallery');
-
-    if (gallery) {
-      const mobile = md.mobile();
-      const galleryLeft = document.querySelector('.js-gallery-nav-left');
-      const galleryRight = document.querySelector('.js-gallery-nav-right');
-      const galleryCenter = document.querySelectorAll('.js-arrow-goto-center');
-
-      $(gallery).not('.slick-initialized').on('init', () => gallery.classList.add('gallery__container_init'));
-
-      const gallerySlider = $(gallery).not('.slick-initialized').slick({
-        infinite: false,
-        adaptiveHeight: true,
-        arrows: false,
-        initialSlide: 1,
-        draggable: true,
-        swipe: false
-      });
-
-      gallerySlider.on('afterChange', (slick, currentSlide) => {
-        $('html, body').animate({
-          scrollTop: $('#gallery').offset().top
-        }, 200);
-
-        if (mobile) {
-          if (currentSlide === 1) {
-            gallerySlider.slick('slickSetOption', 'swipe', false);
-          }else {
-            gallerySlider.slick('slickSetOption', 'swipe', true);
-          }
+    axios.get('../json/news.json')
+      .then(({ data }) => {
+        if (data.length <= 3) {
+          newsButton.classList.add('hide');
+        }
+        const newsHtml = news.getNewsHtml(data.reverse());
+        if (newsWrap) {
+          newsWrap.insertAdjacentHTML('afterbegin', newsHtml);
         }
       });
-
-      galleryLeft.addEventListener('click', () => {
-        gallerySlider.slick('slickGoTo', 0);
-      });
-      galleryRight.addEventListener('click', () => {
-        gallerySlider.slick('slickGoTo', 2);
-      });
-      galleryCenter.forEach(item =>
-        item.addEventListener('click', () => {
-          gallerySlider.slick('slickGoTo', 1);
-        }));
-    }
   }
 };
 

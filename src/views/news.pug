@@ -1,5 +1,7 @@
 extends templates/layout
 
+include ./components/button
+
 block vars
 	- var title = "Khumo - Новости";
 
@@ -8,8 +10,36 @@ block content
 		div.content__intro.content__intro_news
 			div.news__bg
 			include components/header
-			div.news__wrap
-				div.container
-					div.container-inner
-						div.posts.posts_action.js-news
+			div.container.news__container
+				div.container-inner
+				.gallery__message.js-message
+					h2.ta-center.
+						Спасибо за Ваш отзыв!
+				.gallery__form-wrap.js-form-wrap
+					h2.
+						Нам важно Ваше мнение о качестве продукта и сервиса обслуживания!
+					p.
+						Здесь Вы можете написать свои отзывы, предложения и рекомендации по повышению качества нашего продукта или повышению обслуживания в пунктах продаж.
+					form.gallery__form
+						label.gallery__form-label
+							p.gallery__form-title.
+								Как к Вам обращаться
+							input(type="text" name="name" placeholder="Имя, Фамилия").gallery__form-input
+						label.gallery__form-label
+							p.gallery__form-title.
+								Ваш номер телефона
+							input(type="tel" name="phone" placeholder="+7 (999) 999-99-99" required).gallery__form-input
+						label.gallery__form-label
+							p.gallery__form-title.
+								Ваш отзыв
+							textarea(type="text" name="adress" placeholder="").gallery__form-input
+						+button({tag: 'button'})(type="submit").gallery__form-btn.
+							Отправить заявку
+						label.gallery__form-label.gallery__form-label_security
+							input(type="checkbox" checked required)
+							span
+								|Нажимая кнопку «Отправить заявку», я даю согласие на обработку персональных данных и соглашаюсь с
+								|
+								a(href="").security-link.nowrap.
+									политикой конфиденциальности
 			include components/footer

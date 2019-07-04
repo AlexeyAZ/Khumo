@@ -1,5 +1,6 @@
 .video-wrap {
   background-image: url('../img/bg.jpg');
+  background-color: $gray-darkest;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -20,6 +21,9 @@
     left: 0;
     height: 100%;
     width: 100%;
+  }
+  @include media(w768) {
+    background-position: right -44vw center;
   }
 }
 .video {

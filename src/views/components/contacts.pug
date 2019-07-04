@@ -1,0 +1,18 @@
+mixin contacts(data)
+  div.contacts
+    h2.
+      Контакты и представительства
+    p.
+      Производитель: ООО "ХУМО ГРУПП"
+      Республика Татарстан, г. Казань
+      ТУ 32.99.59-001-34675399
+    each item in data
+      p
+        != item.distributor
+      ul.contacts__list
+        each adress in item.adresses
+          li
+            p
+              !=adress
+      p.
+        Приглашаем к сотрудничеству дистрибьюторов и оптовиков по другим городам и регионам!

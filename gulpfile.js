@@ -142,7 +142,7 @@ const svgSpriteBuild = () =>
 
 const watchFiles = () => {
   gulp.watch(paths.static, staticFolder);
-  gulp.watch(paths.html, html);
+  gulp.watch([`${folders.src}/views/**/*.pug`], html);
   gulp.watch(paths.styles, styles);
   gulp.watch(paths.scripts, scriptsWithLint);
   gulp.watch(paths.images, images);

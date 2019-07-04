@@ -1,5 +1,6 @@
 include ./tastes
 include ./button
+include ./contacts
 
 -
   const tastes = [
@@ -102,7 +103,7 @@ include ./button
     {
       img: 'Ananas.png',
       name: 'Ананас',
-      nameEng: 'Ananas',
+      nameEng: 'Pineapple',
       color: '#F3942E'
     },
     {
@@ -113,13 +114,25 @@ include ./button
     }
   ];
 
+-
+  const contactsData = [
+    {
+      distributor: "Дистрибьютор по г. Казани: Сеть магазинов Smoke",
+      adresses: [
+        "ул. Чуйкова, 69",
+        "ТЦ Проспект, ул. Проспект Победы 50а",
+        "ул. Максимова, 7",
+        "ул. Фучика, 64б"
+      ]
+    }
+  ]
+
 div#gallery.gallery
   div.gallery__container.js-gallery
     div.gallery__item
       div.container
-        div.gallery__arrow.gallery__arrow_right.js-arrow-goto-center
         div.container-inner
-          h2.
+          h2.gallery__title.gallery__title_tastes.
             Вкусы
           +tastes(tastes)
 
@@ -142,48 +155,15 @@ div#gallery.gallery
               Вкусы
             +button.gallery__nav-item.js-gallery-nav-right.
               КОНТАКТЫ И ПРЕДСТАВИТЕЛЬСТВА
-          .gallery__message.js-message
-            h3.ta-center.
-              Спасибо за Ваш отзыв!
-          .gallery__form-wrap.js-form-wrap
-            h3.
-              Нам важно Ваше мнение о качестве продукта и сервиса обслуживания!
-            p.
-              Здесь Вы можете написать свои отзывы, предложения и рекомендации по повышению качества нашего продукта или повышению обслуживания в пунктах продаж.
-            form.gallery__form
-              label.gallery__form-label
-                p.gallery__form-title.
-                  Как к Вам обращаться
-                input(type="text" name="name" placeholder="Имя, Фамилия").gallery__form-input
-              label.gallery__form-label
-                p.gallery__form-title.
-                  Ваш номер телефона
-                input(type="tel" name="phone" placeholder="+7 (999) 999-99-99" required).gallery__form-input
-              label.gallery__form-label
-                p.gallery__form-title.
-                  Ваш отзыв
-                textarea(type="text" name="adress" placeholder="").gallery__form-input
-              +button({tag: 'button'})(type="submit").gallery__form-btn.
-                Отправить заявку
-              label.gallery__form-label.gallery__form-label_security
-                input(type="checkbox" checked required)
-                span
-                  |Нажимая кнопку «Отправить заявку», я даю согласие на обработку персональных данных и соглашаюсь с
-                  |
-                  a(href="").security-link.nowrap.
-                    политикой конфиденциальности
+          div.news__wrap
+            h2.
+              Новости
+            div.posts.posts_action.js-news
+            +button.js-gallery-show-all-news.
+              Показать все новости
 
     div.gallery__item
       div.container
-        div.gallery__arrow.gallery__arrow_left.js-arrow-goto-center
+        //- div.gallery__arrow.gallery__arrow_left.js-arrow-goto-center
         div.container-inner.gallery__item-container-inner.gallery__item-container-inner_right
-          h2.
-            Контакты и представительства
-          p.
-            Производитель: ООО "ХУМО ГРУПП"
-            Республика Татарстан, г. Казань
-            ТУ 32.99.59-001-34675399
-          p.
-            Дистрибьютор по г. Казани: Сеть магазинов Smoke
-          p.
-            Приглашаем к сотрудничеству дистрибьюторов и оптовиков по другим городам и регионам!
+          +contacts(contactsData)
