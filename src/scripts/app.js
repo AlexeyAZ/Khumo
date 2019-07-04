@@ -205,7 +205,7 @@ const app = {
       $(globalGallery).slick('reinit');
     });
 
-    axios.get('./json/news.json')
+    axios.get('json/news.json')
       .then(({ data }) => {
         if (data.length <= 3) {
           newsButton.classList.add('hide');
