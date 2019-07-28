@@ -199,22 +199,24 @@ const app = {
     const news = new News();
     const newsWrap = document.querySelector('.js-news');
     const newsButton = document.querySelector('.js-gallery-show-all-news');
-    newsButton.addEventListener('click', e => {
-      news.showAllNews();
-      newsButton.classList.add('hide');
-      $(globalGallery).slick('reinit');
-    });
-
-    axios.get('json/news.json')
-      .then(({ data }) => {
-        if (data.length <= 3) {
-          newsButton.classList.add('hide');
-        }
-        const newsHtml = news.getNewsHtml(data.reverse());
-        if (newsWrap) {
-          newsWrap.insertAdjacentHTML('afterbegin', newsHtml);
-        }
+    if (newsButton) {
+      newsButton.addEventListener('click', () => {
+        news.showAllNews();
+        newsButton.classList.add('hide');
+        $(globalGallery).slick('reinit');
       });
+
+      axios.get('json/news.json')
+        .then(({ data }) => {
+          if (data.length <= 3) {
+            newsButton.classList.add('hide');
+          }
+          const newsHtml = news.getNewsHtml(data.reverse());
+          if (newsWrap) {
+            newsWrap.insertAdjacentHTML('afterbegin', newsHtml);
+          }
+        });
+    }
   }
 };
 
