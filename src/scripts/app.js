@@ -77,15 +77,15 @@ const app = {
             url: 'mail/send.php',
             data: formData,
             success: () => {
-              alert('Заявка отправлена');
-              clearForm(self);
+              // alert('Заявка отправлена');
+              clearForm(form);
               message.classList.add('gallery__message_show');
               formWrap.classList.add('gallery__form-wrap_hide');
             },
             error: () => {
-              alert('Ошибка');
-              message.classList.add('gallery__message_show');
-              formWrap.classList.add('gallery__form-wrap_hide');
+              alert('При отправке данных произошла ошибка. Попробуйте попытку позднее.');
+              // message.classList.add('gallery__message_show');
+              // formWrap.classList.add('gallery__form-wrap_hide');
             }
           });
         });
