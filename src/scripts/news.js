@@ -4,16 +4,21 @@ class News {
     if (newsList) {
       newsList.classList.remove('news__part');
     }
-    
   }
-  createSingleNews = ({title, text, date}) => {
+  createSingleNews = ({title, text, date, image}) => {
     return `
       <div class="news__post">
         <div class="news__post-head">
-          <h3>${title}</h3>
-          <h3>${date}</h3>
+          <h3>${title || ''}</h3>
+          <h3>${date || ''}</h3>
         </div>
-        ${text.map(paragraph => `<p>${paragraph}</p>`).join('')}
+        ${
+          text && text.length > 0 ? text.map(paragraph => `<p>${paragraph}</p>`).join('') : ''
+        }
+        ${image ? (
+          `<div class="news__img">
+            <img class="news__img-pic" src=${image} />
+          </div>`) : ''}
       </div>
     `;
   }
